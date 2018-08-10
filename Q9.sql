@@ -3,10 +3,10 @@ SELECT DISTINCT (sub.n_member) AS "name of member",
 	   sub.cost AS cost
 	FROM (
 		  SELECT f.name AS name,
-				 b.starttime AS starttime,
-	            (m.firstname || ' ' || m.surname) AS n_member,
-	             CASE WHEN m.memid > 0 THEN (f.membercost * b.slots)
-			          WHEN m.memid =0 THEN (f.guestcost*b.slots) END AS cost
+			 b.starttime AS starttime,
+	                 CONCAT(m.firstname, ' ', m.surname) AS n_member,
+	                 CASE WHEN m.memid > 0 THEN (f.membercost * b.slots)
+			      WHEN m.memid =0 THEN (f.guestcost*b.slots) END AS cost
 			FROM Facilities f
 				JOIN Bookings b
 					ON f.facid = b.facid
