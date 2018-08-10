@@ -1,5 +1,5 @@
 SELECT DISTINCT f.name,
-	   (m.firstname || ' ' || m.surname) AS member_name 
+	CONCAT(m.firstname, ' ', m.surname) AS member_name 
 	FROM Facilities f
 		JOIN Bookings b
 			ON f.facid = b.facid
