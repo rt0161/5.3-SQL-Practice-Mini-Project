@@ -1,4 +1,4 @@
-SELECT (m.firstname || ' ' || m.surname) AS "name of member",
+SELECT CONCAT(m.firstname, ' ', m.surname) AS "name of member",
        f.name AS "name of facility",
 	   (f.membercost * b.slots) AS cost
 	FROM Facilities f
